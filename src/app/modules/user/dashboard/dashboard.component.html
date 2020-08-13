@@ -13,10 +13,11 @@
                         <div class="card-body">
                             <p class="card-text">Naam: {{l.name}}</p>
                             <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                            <p>Beschrijving: {{l.description}}</p>
                             <p>Beschikbaar tot: {{l.endDate}}</p>
                             <p class="card-text">Lijst items:</p>
                             <div *ngFor="let i of l.items">
-                                <p>{{i.name}} {{i.votes.length}}
+                                <p>{{i.name}} {{i.description}} {{i.votes.length}}
                                     </p>
                             </div>
 
@@ -37,9 +38,10 @@
                     <div class="card-body">
                         <p class="card-text">Naam: {{l.name}}</p>
                         <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                        <p>Beschrijving: {{l.description}}</p>
                         <p>Items:</p>
                         <div *ngFor="let i of l.items">
-                            <p>{{i.name}} {{i.votes.length}}
+                            <p>{{i.name}} {{i.description}} {{i.votes.length}}
                             </p>
                         </div>
 
@@ -56,9 +58,10 @@
                     <div class="card-body">
                         <p class="card-text">Naam: {{l.name}}</p>
                         <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                        <p>Beschrijving: {{l.description}}</p>
                         <p>Items:</p>
                         <div *ngFor="let i of l.items">
-                            <p>{{i.name}} {{i.votes.length}}
+                            <p>{{i.name}} {{i.description}} {{i.votes.length}}
                             </p>
                         </div>
                     </div>
