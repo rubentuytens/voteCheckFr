@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HerexamenProject';
+  constructor(public userService: UserServiceService) { }
+
+  logout() {
+    this.userService.logout();
+  }
 }

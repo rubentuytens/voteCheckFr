@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="distance bg-light rounded">
+            <form class="text-center border border-light p-5">
+                <p class="h4 mb-4">Niewe lijst aanmaken</p>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" placeholder="Lijst naam"
+                        [(ngModel)]="newList.name" name="name" />
+
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" placeholder="Beschrijving"
+                        [(ngModel)]="newList.description" name="description" />
+
+                </div>
+                <div class="form-group">
+                    <select name="category" [(ngModel)]="newList.categoryID">
+                        <option *ngFor="let c of categories" name="c.categoryID" [ngValue]="c.categoryID">{{c.name}}
+                        </option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label>Categorie niet in de lijst?</label>
+                    <input class="form-control form-control-lg" type="text" name="newCategory"
+                        [(ngModel)]="newCategory.name" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="date" name="startDate"
+                        [(ngModel)]="newList.startDate" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="date" name="endDate"
+                        [(ngModel)]="newList.endDate" />
+                </div>
+                <p class="h4 mb-4">Items toevoegen</p>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" placeholder="Item naam"
+                        [(ngModel)]="newItem.name" name="itemName" />
+
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" placeholder="Beschrijving item"
+                        [(ngModel)]="newItem.description" name="itemDescription" />
+
+                </div>
+                <div>
+                    <ul *ngIf="newItems.length >= 1">
+                        <li *ngFor="let item of newItems">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div><button (click)="addItem()" class="btn btn-secondary">Item toevoegen</button></div>
+                <div><button (click)="addList()" class="btn btn-secondary">Lijst toevoegen</button></div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="container">
+
+
+    <div class="row container-fluid h100 mt-5">
+        <div>
+            <h2>Actieve lijsten</h2>
+            <button (click)="addList()" class="btn btn-outline-info">Lijst maken</button>
+
+
+            <div class="row m-1">
+                <div class="row m-1" *ngFor="let l of lists">
+                    <div class="card col-auto " style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text">Naam: {{l.name}}</p>
+                            <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                            <p>Beschikbaar tot: {{l.endDate}}</p>
+                            <p class="card-text">Lijst items:</p>
+                            <div *ngFor="let i of l.items">
+                                <p>{{i.name}} {{i.votes.length}}
+                                    </p>
+                            </div>
+
+                            
+                            <div><button (click)="closeList(l)" class="btn btn-danger">Lijst afsluiten</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 *ngIf="inactiveLists.length >=1">Inactieve lijsten</h2>
+    <div class="row container-fluid h100 mt-5">
+        <div class="row m-1">
+            <div *ngFor="let l of inactiveLists" class="row m-1">
+                <div class="card col-auto " style="width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text">Naam: {{l.name}}</p>
+                        <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                        <p>Items:</p>
+                        <div *ngFor="let i of l.items">
+                            <p>{{i.name}} {{i.votes.length}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 *ngIf="votedLists.length >=1">Gestemde lijsten</h2>
+    <div class="row container-fluid h100 mt-5">
+        <div class="row m-1">
+            <div *ngFor="let l of votedLists" class="row m-1">
+                <div class="card col-auto " style="width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text">Naam: {{l.name}}</p>
+                        <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                        <p>Items:</p>
+                        <div *ngFor="let i of l.items">
+                            <p>{{i.name}} {{i.votes.length}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

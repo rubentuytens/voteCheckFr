@@ -1,0 +1,36 @@
+<div class="container">
+    <div class=" container-fluid h100 mt-5">
+        <h2>Welkom bij VoteCheck</h2>
+        <div class="row container-fluid h100 mt-5 afstand">
+            <input type="text" name="filter" [(ngModel)]="filterString" />
+            <select [(ngModel)]="searchCategory">
+                <option name="category" [ngValue]="1" selected>Categorie</option>
+                <option name="listName" [ngValue]="2">Lijst naam</option>
+                <option name="userName" [ngValue]="3">Gebruikersnaam</option>
+
+            </select>
+            <button (click)="filterLists()" class="btn btn-secondary">zoeken op category</button>
+        </div>
+
+        <div class="row container-fluid h100 mt-5">
+            <div class="row m-1">
+                <div *ngFor="let l of lists" class="row m-1">
+                    <div class="card col-auto " style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text">Naam: {{l.name}}</p>
+                            <p>Soort: {{categories[l.categoryID-1].name}}</p>
+                            <p>Beschikbaar tot: {{l.endDate}}</p>
+                            <p>Items: </p>
+                            <div *ngFor="let i of l.items">
+                                <p>{{i.name}} {{i.votes.length}}
+                                    <input type="checkbox" [value]="i.itemID" (change)="check($event, l.listID)" /></p>
+                            </div>
+
+                            <button (click)="voteList(l)" class="btn btn-secondary">Stemmen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

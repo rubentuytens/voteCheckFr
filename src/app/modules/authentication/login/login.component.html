@@ -1,0 +1,51 @@
+<div class="container">
+    <div class=" container-fluid h100 mt-5">
+        <h2>Welkom bij VoteCheck</h2>
+        <h2>Login</h2>
+        <form (ngSubmit)="onLogin()">
+            <div class="form-group">
+                <input class="form-control form-control-lg" placeholder="Email" type="text"
+                    [(ngModel)]="loginUser.userName" name="email" />
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control-lg" placeholder="Wachtwoord" type="password"
+                    [(ngModel)]="loginUser.password" name="password" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" color="primary" type="submit">Aanmelden</button>
+            </div>
+        </form>
+        <h2>Registreren</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" placeholder="Email" type="text" [(ngModel)]="newUser.email"
+                    name="email" />
+
+            </div>
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" placeholder="Gebruikersnaam" type="text"
+                    [(ngModel)]="newUser.userName" name="userName" />
+
+            </div>
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" placeholder="Wachtwoord" type="password"
+                    [(ngModel)]="newUser.password" name="password" />
+
+            </div>
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" placeholder="Bevestig achtwoord" type="password"
+                    [(ngModel)]="confirmPassword" name="confirm" />
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" color="primary" type="submit"
+                    [disabled]="submitted">Registreer
+                    account</button>
+            </div>
+        </form>
+    </div>
+</div>
